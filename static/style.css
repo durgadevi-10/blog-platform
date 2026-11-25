@@ -1,0 +1,292 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #050816, #0f172a, #111827) !important;
+    color: #f8fafc;
+    min-height: 100vh;
+    line-height: 1.7;
+}
+
+/* HEADER */
+header {
+    background: #080f23;
+    border-bottom: 1px solid #334155;
+    padding: 22px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #22d3ee;
+}
+
+header span {
+    color: #cbd5e1;
+}
+
+nav a {
+    color: #67e8f9;
+    text-decoration: none;
+    margin: 7px;
+}
+
+nav a:hover {
+    color: #c4b5fd;
+}
+
+/* MAIN CONTAINER */
+.container {
+    max-width: 950px;
+    margin: 45px auto;
+    padding: 25px;
+}
+
+h2 {
+    font-size: 25px;
+    margin: 35px 0 20px;
+    color: #e2e8f0;
+    border-left: 4px solid #22d3ee;
+    padding-left: 13px;
+}
+
+h3 {
+    color: #67e8f9;
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+h4 {
+    color: #c4b5fd;
+    margin: 18px 0 12px;
+}
+
+/* FORMS */
+form {
+    margin: 12px 0;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #22d3ee;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #94a3b8;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* BUTTONS */
+button {
+    background: linear-gradient(135deg, #0891b2, #6366f1);
+    color: white;
+    border: none;
+    padding: 13px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+/* BLOG CARDS */
+.post {
+    background: #111c32;
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 28px;
+    margin: 28px 0;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+.post p {
+    color: #cbd5e1;
+    overflow-wrap: anywhere;
+    margin: 12px 0;
+}
+
+.post small {
+    color: #94a3b8;
+}
+
+.category {
+    display: inline-block;
+    background: #312e81;
+    color: #c4b5fd;
+    border: 1px solid #6366f1;
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
+/* LIKE SECTION */
+.like-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 18px 0;
+}
+
+.like-section form {
+    margin: 0;
+}
+
+.like-button {
+    background: #164e63;
+    color: #67e8f9;
+}
+
+.liked-button {
+    background: #881337;
+    color: #fda4af;
+}
+
+.like-count {
+    color: #fda4af;
+    font-weight: 600;
+}
+
+/* COMMENTS */
+.comment {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-left: 4px solid #8b5cf6;
+    padding: 17px;
+    margin: 13px 0;
+    border-radius: 10px;
+}
+
+.comment strong {
+    color: #c4b5fd;
+}
+
+.comment p {
+    color: #cbd5e1;
+}
+
+/* LINKS */
+a {
+    color: #67e8f9;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c4b5fd;
+}
+
+/* MESSAGES */
+.message {
+    background: #14532d;
+    color: #86efac;
+    border: 1px solid #22c55e;
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #334155;
+    margin: 22px 0;
+}
+
+/* PROFILE */
+.profile-card {
+    background: #111c32;
+    border: 1px solid #22d3ee;
+    border-radius: 22px;
+    padding: 40px 25px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.profile-avatar {
+    width: 95px;
+    height: 95px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: 800;
+    color: white;
+    background: linear-gradient(135deg, #06b6d4, #7c3aed);
+}
+
+.profile-email {
+    color: #94a3b8;
+    margin: 8px 0 25px;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.profile-stats div {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 15px;
+    padding: 20px 35px;
+}
+
+.profile-stats h3 {
+    font-size: 30px;
+    color: #22d3ee;
+    margin: 0;
+}
+
+/* MOBILE */
+@media(max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .post {
+        padding: 20px;
+    }
+}

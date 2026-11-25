@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} - My Blog Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>My Blog Platform</h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('profile') }}">My Profile</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </nav>
+</header>
+
+<main class="container">
+
+    <a href="{{ url_for('index') }}">← Back to Blogs</a>
+
+    <article class="post">
+
+        <span class="category">{{ post.category or 'Other' }}</span>
+
+        <h2>{{ post.title }}</h2>
+
+        <p>
+            Written by <strong>{{ post.username }}</strong>
+        </p>
+
+        <hr>
+
+        <div class="blog-full-content">
+            {{ post.content }}
+        </div>
+
+        <hr>
+
+        <div class="like-section">
+
+            {% if session.get('user_id') %}
+                <form action="{{ url_for('toggle_like', post_id=post.id) }}" method="POST">
+                    {% if liked %}
+                        <button type="submit" class="liked-button">❤️ Unlike</button>
+                    {% else %}
+                        <button type="submit" class="like-button">🤍 Like</button>
+                    {% endif %}
+                </form>
+            {% else %}
+                <p>Login to like this blog.</p>
+            {% endif %}
+
+            <span class="like-count">
+                ❤️ {{ post.like_count }} Likes
+            </span>
+
+        </div>
+
+        <hr>
+
+        <h3>Comments ({{ comments|length }})</h3>
+
+        {% for comment in comments %}
+
+            <div class="comment">
+
+                <strong>{{ comment.username }}</strong>
+
+                <p>{{ comment.content }}</p>
+
+                {% if session.get('user_id') == comment.user_id %}
+                    <form action="{{ url_for('delete_comment', comment_id=comment.id) }}" method="POST">
+                        <button type="submit"
+                                onclick="return confirm('Delete this comment?')">
+                            Delete Comment
+                        </button>
+                    </form>
+                {% endif %}
+
+            </div>
+
+        {% else %}
+            <p>No comments yet. Be the first to comment!</p>
+        {% endfor %}
+
+        {% if session.get('user_id') %}
+
+            <h4>Add Your Comment</h4>
+
+            <form action="{{ url_for('add_comment', post_id=post.id) }}" method="POST">
+
+                <textarea name="content"
+                          placeholder="Write your comment here..."
+                          required></textarea>
+
+                <button type="submit">Post Comment</button>
+
+            </form>
+
+        {% else %}
+            <p>Login to add a comment.</p>
+        {% endif %}
+
+    </article>
+
+</main>
+
+<footer style="text-align:center; padding:25px; color:#94a3b8;">
+    <p>© 2026 My Blog Platform | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
